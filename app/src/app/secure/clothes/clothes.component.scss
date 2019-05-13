@@ -1,0 +1,38 @@
+#welcome-message{
+    display: block;
+    text-align: center;
+}
+tbody tr{
+    cursor: pointer;
+}
+thead td{
+    font-weight: 600;
+    text-align: center;
+}
+#add-button{
+    margin-top: 2em;
+    margin-left: auto;
+    margin-right: 1rem;
+    margin-bottom: 3em;
+    display: block;
+}
+#no-items{
+    margin: 2em;
+    display: block;
+    text-align: center;
+}
+.input-field label {
+    -webkit-transform: translateY(-14px) scale(0.8);
+    transform: translateY(-14px) scale(0.8);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+#select-label{
+    -webkit-transform: translateY(14px) scale(0.8);
+    transform: translateY(14px) scale(0.8);
+}
+@media (min-width: 600px) {
+    .resposible{
+        width: 33% !important;
+    }
+}

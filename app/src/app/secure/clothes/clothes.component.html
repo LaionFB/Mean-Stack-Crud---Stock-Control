@@ -1,0 +1,118 @@
+<div>
+  <h5 class="blue-grey-text text-darken-3" id="welcome-message">Roupas Cadastradas</h5>
+  <table class="highlight centered">
+    <thead>
+      <tr>
+        <td>Cód.</td>
+        <td>Tipo</td>
+        <td>Marca</td>
+        <td class="hide-on-med-and-down">Tam.</td>
+        <td class="hide-on-med-and-down">Cor</td>
+        <td class="hide-on-med-and-down">Preço etiq.</td>
+        <td>Preço Compra</td>
+        <td>Preço Suger.</td>
+        <td class="hide-on-med-and-down">Preço Mg. 100%</td>
+        <td class="hide-on-med-and-down">Entrada</td>
+        <td>Qtd</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items" (click)="modalItem(item)">
+        <td>{{ item.code }}</td>
+        <td>{{ item.type }}</td>
+        <td>{{ item.brand }}</td>
+        <td class="hide-on-med-and-down">{{ item.size }}</td>
+        <td class="hide-on-med-and-down">{{ item.color }}</td>
+        <td class="hide-on-med-and-down">{{ item.tagPrice | currency }}</td>
+        <td>{{ item.buyPrice | currency }}</td>
+        <td>{{ item.suggestedPrice | currency }}</td>
+        <td class="hide-on-med-and-down">{{ item.buyPrice * 2 | currency }}</td>
+        <td class="hide-on-med-and-down">{{ item._entryDate | date }}</td>
+        <td>{{ item.amount }}</td>
+      </tr>
+      <tr>
+    </tbody>
+  </table>
+
+  <h6 *ngIf="!items.length" id="no-items"><i>Nenhum Item cadastrado</i></h6>
+
+  <button class="btn waves-effect waves-light" id="add-button" type="button" (click)="modalItem()">
+    <span>Adicionar</span>
+    <i class="material-icons right">add</i>
+  </button>
+</div>
+
+<div class="modal">
+  <div class="modal-content">
+    <h4>{{ selectedItem._id ? 'Editar' : 'Adicionar' }} Item</h4>  
+    <br/>
+    <div class="row">
+      <div class="input-field col s12 m12 resposible">
+        <input [(ngModel)]="selectedItem.code" id="code" type="text">
+        <label for="code">Código</label>
+      </div>
+    
+      <div class="input-field col s12 m12 resposible">
+        <input [(ngModel)]="selectedItem.type" id="type" type="text">
+        <label for="type">Tipo</label>
+      </div>
+      
+      <div class="input-field col s12 m12 resposible">
+        <input [(ngModel)]="selectedItem.brand" id="brand" type="text">
+        <label for="brand">Marca</label>
+      </div>  
+    </div>
+  
+    <div class="row">      
+      <div class="input-field col s12 m12 resposible">
+        <select [(ngModel)]="selectedItem.size">
+          <option value="PP">PP</option>
+          <option value="P">P</option>
+          <option value="M">M</option>
+          <option value="G">G</option>
+          <option value="GG">GG</option>
+        </select>
+        <label id="select-label">Tamanho</label>
+      </div>
+
+      <div class="input-field col s12 m12 resposible">
+        <input [(ngModel)]="selectedItem.color" id="color" type="text">
+        <label for="color">Cor</label>
+      </div>
+      
+      <div class="input-field col s12 m12 resposible">
+        <input [(ngModel)]="selectedItem.tagPrice" id="tagPrice" type="number">
+        <label for="tagPrice">Preço etiqueta</label>
+      </div>
+    </div>
+  
+    <div class="row">      
+      <div class="input-field col s12 m12 resposible">
+        <input [(ngModel)]="selectedItem.buyPrice" id="buyPrice" type="number">
+        <label for="buyPrice">Preço compra</label>
+      </div>
+      
+      <div class="input-field col s12 m12 resposible">
+        <input [(ngModel)]="selectedItem.suggestedPrice" id="suggestedPrice" type="number">
+        <label for="suggestedPrice">Preço segerido</label>
+      </div>
+      
+      <div class="input-field col s12 m12 resposible">
+        <input [(ngModel)]="selectedItem.amount" id="amount" type="number">
+        <label for="amount">Quantidade</label>
+      </div>
+    </div>
+  
+    <div class="row">      
+      <div class="input-field col s12 m12">
+        <textarea [(ngModel)]="selectedItem.description" id="description" class="materialize-textarea"></textarea>
+        <label for="description">Descrição</label>
+      </div>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <a *ngIf="selectedItem._id" (click)="deleteItem(selectedItem)" class="waves-effect waves-red btn-flat">Deletar</a>
+    <a (click)="saveItem(selectedItem)" class="waves-effect waves-green btn-flat">Salvar</a>
+  </div>
+</div>

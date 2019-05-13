@@ -1,0 +1,52 @@
+<h5 class="blue-grey-text text-darken-3" id="welcome-message">Preencha o formulário para se registrar!</h5>
+<br/>
+<div class="row">
+  <div class="container" id="register-card">
+    <div class="z-depth-1 grey lighten-4 row" id="register-card-content">
+
+      <form class="col s12" method="post" (submit)="signUp(entity)">
+        <div class='row'>
+          <div class='col s12'>
+          </div>
+        </div>
+
+        <div class='row'>
+          <div class='input-field col s12'>
+            <input type='text' name='firstName' id='firstName' [(ngModel)]="entity.firstName"/>
+            <label for='firstName'>Primeiro Nome</label>
+          </div>
+        </div>
+
+
+        <div class='row'>
+          <div class='input-field col s12'>
+            <input type='text' name='lastName' id='lastName' [(ngModel)]="entity.lastName"/>
+            <label for='lastName'>Sobrenome</label>
+          </div>
+        </div>
+
+
+        <div class='row'>
+          <div class='input-field col s12'>
+            <input type='email' name='email' id='email' [(ngModel)]="entity.email"/>
+            <label for='email'>E-mail</label>
+          </div>
+        </div>
+
+        <div class='row'>
+          <div class='input-field col s12'>
+            <input type='password' name='password' id='password' [(ngModel)]="entity._password"/>
+            <label for='password'>Senha</label>
+          </div>
+        </div>
+
+        <br/>
+        <div>
+          <div class='row'>
+            <button type='submit' name='btn_register' class='col s12 btn btn-large waves-effect teal lighten-1'>Cadastrar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

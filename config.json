@@ -1,0 +1,4 @@
+﻿{
+    "connectionString": "mongodb://localhost:27017/LionN1",
+    "secret": "948cf9795f8ecc9f9707db17273b2665"
+}
